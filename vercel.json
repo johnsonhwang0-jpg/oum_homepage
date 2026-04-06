@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/oum_homepage/(.*)",
+      "destination": "/$1"
+    },
+    {
+      "source": "/oum_homepage",
+      "destination": "/"
+    }
+  ]
+}
