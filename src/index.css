@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #090e18;
+  --color-surface: #090e18;
+  --color-surface-container-low: #0e131e;
+  --color-surface-container: #141a26;
+  --color-surface-container-high: #19202d;
+  --color-surface-container-highest: #1f2634;
+  --color-surface-bright: #242c3c;
+  --color-surface-variant: #1f2634;
+
+  --color-primary: #81ecff;
+  --color-primary-dim: #00d4ec;
+  --color-secondary: #aa8aff;
+  --color-tertiary: #afffd1;
+  
+  --color-on-surface: #e4e8f7;
+  --color-on-surface-variant: #a6abb9;
+  --color-outline-variant: #434854;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-body selection:bg-primary selection:text-background;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-linear-to-r from-primary to-primary-dim bg-clip-text text-transparent;
+  }
+
+  .glass-panel {
+    @apply bg-surface-variant/40 backdrop-blur-xl border border-outline-variant/20;
+  }
+}
