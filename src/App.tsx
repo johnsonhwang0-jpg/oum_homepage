@@ -270,28 +270,22 @@ const PracticePlatform = () => {
 const TeacherFeedback = () => {
   const feedbacks = [
     {
-      name: "Dr. Sarah Johnson",
-      role: "Professor of Computer Science",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-      feedback: "The AI-powered simulations have transformed how my students engage with complex concepts. The real-time feedback mechanism helps them identify misconceptions immediately."
+      name: "Dr. Nantha",
+      role: "Requirements Engineering",
+      avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+      feedback: "I've just completed my review—thank you for the interactive courseware, it's very engaging and interesting. I do have a few suggestions for improvement. Overall, it's a great effort. Thank you!"
     },
     {
-      name: "Prof. Michael Chen",
-      role: "Head of Physics Department",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-      feedback: "The virtual lab environments allow students to experiment safely and repeatedly, which has significantly improved their understanding of physical phenomena."
+      name: "Dr. Loo",
+      role: "Teaching English to Young Learners",
+      avatar: "https://randomuser.me/api/portraits/women/33.jpg",
+      feedback: "The simulation is interactive, which makes it effective for reinforcing the Topic 6 through hands-on learning. I like how it connects theory to practice, particularly through storytelling, phonetics, and observing children's reactions. Overall, the format aligns well with the intended direction and has strong potential with further refinement."
     },
     {
-      name: "Dr. Emily Rodriguez",
-      role: "Educational Psychologist",
-      avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-      feedback: "The adaptive learning paths are precisely tailored to individual student needs, addressing the challenge of differentiated instruction in large classes."
-    },
-    {
-      name: "Prof. David Kim",
-      role: "Professor of Economics",
-      avatar: "https://randomuser.me/api/portraits/men/55.jpg",
-      feedback: "The economic simulation lab has made abstract concepts tangible for students, leading to more insightful class discussions and higher engagement."
+      name: "Dr. Faith",
+      role: "Advanced Managerial Economics",
+      avatar: "https://randomuser.me/api/portraits/women/54.jpg",
+      feedback: "It demonstrates a commendable effort to integrate experiential learning into a traditionally theoretical subject. The inclusion of dynamic graphs, adjustable parameters, and real-time feedback mechanisms allows learners to visualize how changes in price influence quantity demanded, which is essential for deep conceptual understanding. Overall, it was a commendable effort; the interactive simulation shows significant potential as a self-instructional tool and, with further refinement, could greatly enhance the accuracy, clarity, and educational value of the material, ensuring that learners develop a solid and reliable understanding of price elasticity of demand. Thank you 👍"
     }
   ];
 
@@ -306,7 +300,7 @@ const TeacherFeedback = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {feedbacks.map((item, i) => (
             <motion.div
               key={item.name}
