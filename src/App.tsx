@@ -273,19 +273,19 @@ const TeacherFeedback = () => {
     {
       name: "Dr. Nantha",
       role: "Requirements Engineering",
-      avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+      avatar: "/src/img/dr_nantha.png",
       feedback: "I've just completed my review—thank you for the interactive courseware, it's very engaging and interesting. I do have a few suggestions for improvement. Overall, it's a great effort. Thank you!"
     },
     {
       name: "Dr. Loo",
       role: "Teaching English to Young Learners",
-      avatar: "https://randomuser.me/api/portraits/women/33.jpg",
+      avatar: "/src/img/dr_loo.png",
       feedback: "The simulation is interactive, which makes it effective for reinforcing the Topic 6 through hands-on learning. I like how it connects theory to practice, particularly through storytelling, phonetics, and observing children's reactions. Overall, the format aligns well with the intended direction and has strong potential with further refinement."
     },
     {
       name: "Dr. Faith",
       role: "Advanced Managerial Economics",
-      avatar: "https://randomuser.me/api/portraits/women/54.jpg",
+      avatar: "/src/img/dr_faith.png",
       feedback: "It demonstrates a commendable effort to integrate experiential learning into a traditionally theoretical subject. The inclusion of dynamic graphs, adjustable parameters, and real-time feedback mechanisms allows learners to visualize how changes in price influence quantity demanded, which is essential for deep conceptual understanding. Overall, it was a commendable effort; the interactive simulation shows significant potential as a self-instructional tool and, with further refinement, could greatly enhance the accuracy, clarity, and educational value of the material, ensuring that learners develop a solid and reliable understanding of price elasticity of demand. Thank you 👍"
     }
   ];
