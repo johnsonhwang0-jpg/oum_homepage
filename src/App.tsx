@@ -268,6 +268,7 @@ const PracticePlatform = () => {
 
 
 const TeacherFeedback = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const feedbacks = [
     {
       name: "Dr. Nantha",
@@ -289,6 +290,14 @@ const TeacherFeedback = () => {
     }
   ];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbacks.length);
+    }, 8000); // Change every 8 seconds
+
+    return () => clearInterval(interval);
+  }, [feedbacks.length]);
+
   return (
     <section id="feedback" className="py-32 px-8 md:px-24 bg-surface-container">
       <div className="max-w-screen-2xl mx-auto">
@@ -300,30 +309,46 @@ const TeacherFeedback = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {feedbacks.map((item, i) => (
-            <motion.div
-              key={item.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="p-8 bg-surface-variant/30 rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-all"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <img 
-                  src={item.avatar} 
-                  alt={item.name} 
-                  className="w-16 h-16 rounded-full object-cover"
-                />
-                <div>
-                  <h4 className="font-headline text-xl font-bold">{item.name}</h4>
-                  <p className="text-sm text-on-surface-variant">{item.role}</p>
+        <div className="relative overflow-hidden">
+          <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+            {feedbacks.map((item, i) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-4"
+              >
+                <div className="h-full p-8 bg-surface-variant/30 rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-all">
+                  <div className="flex items-center gap-4 mb-6">
+                    <img 
+                      src={item.avatar} 
+                      alt={item.name} 
+                      className="w-16 h-16 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-headline text-xl font-bold">{item.name}</h4>
+                      <p className="text-sm text-on-surface-variant">{item.role}</p>
+                    </div>
+                  </div>
+                  <p className="text-on-surface text-lg leading-relaxed italic">"{item.feedback}"</p>
                 </div>
-              </div>
-              <p className="text-on-surface text-lg leading-relaxed italic">"{item.feedback}"</p>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Navigation dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {feedbacks.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all ${index === currentIndex ? 'bg-primary w-8' : 'bg-outline-variant'}`}
+                aria-label={`Go to feedback ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
