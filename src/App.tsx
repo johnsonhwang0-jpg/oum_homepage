@@ -309,7 +309,7 @@ const TeacherFeedback = () => {
           </div>
         </div>
 
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden max-w-4xl mx-auto">
           <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
             {feedbacks.map((item, i) => (
               <motion.div
@@ -318,18 +318,18 @@ const TeacherFeedback = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-4"
+                className="min-w-full p-4"
               >
-                <div className="h-full p-8 bg-surface-variant/30 rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-all">
-                  <div className="flex items-center gap-4 mb-6">
+                <div className="h-full p-10 bg-surface-variant/30 rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-all shadow-lg">
+                  <div className="flex items-center gap-6 mb-8">
                     <img 
                       src={item.avatar} 
                       alt={item.name} 
-                      className="w-16 h-16 rounded-full object-cover"
+                      className="w-20 h-20 rounded-full object-cover border-4 border-primary/20"
                     />
                     <div>
-                      <h4 className="font-headline text-xl font-bold">{item.name}</h4>
-                      <p className="text-sm text-on-surface-variant">{item.role}</p>
+                      <h4 className="font-headline text-2xl font-bold">{item.name}</h4>
+                      <p className="text-sm text-on-surface-variant mt-1">{item.role}</p>
                     </div>
                   </div>
                   <p className="text-on-surface text-lg leading-relaxed italic">"{item.feedback}"</p>
@@ -339,12 +339,12 @@ const TeacherFeedback = () => {
           </div>
           
           {/* Navigation dots */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-3 mt-12">
             {feedbacks.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all ${index === currentIndex ? 'bg-primary w-8' : 'bg-outline-variant'}`}
+                className={`w-4 h-4 rounded-full transition-all ${index === currentIndex ? 'bg-primary w-12' : 'bg-outline-variant'}`}
                 aria-label={`Go to feedback ${index + 1}`}
               />
             ))}
