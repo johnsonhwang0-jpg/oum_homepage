@@ -274,6 +274,7 @@ const PracticePlatform = () => {
 
 const TeacherFeedback = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
   
   const feedbacks = [
     {
@@ -297,12 +298,18 @@ const TeacherFeedback = () => {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbacks.length);
-    }, 8000); // Change every 8 seconds
+    let interval: NodeJS.Timeout;
+    
+    if (!isHovering) {
+      interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbacks.length);
+      }, 8000); // Change every 8 seconds
+    }
 
-    return () => clearInterval(interval);
-  }, [feedbacks.length]);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [feedbacks.length, isHovering]);
 
   return (
     <section id="feedback" className="py-32 px-8 md:px-24 bg-surface-container">
@@ -310,12 +317,16 @@ const TeacherFeedback = () => {
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
           <div className="max-w-2xl">
             <span className="text-primary text-[0.6875rem] uppercase tracking-[0.2em] font-bold block mb-4">Module 02</span>
-            <h2 className="font-headline text-5xl font-bold mb-6">Teacher Team Feedback</h2>
+            <h2 className="font-headline text-5xl font-bold mb-6">Faculty Team Feedback</h2>
             <p className="text-on-surface-variant text-lg">What educators are saying about our AI-native learning platform and how it's transforming their teaching experience.</p>
           </div>
         </div>
 
-        <div className="relative overflow-hidden max-w-4xl mx-auto">
+        <div 
+          className="relative overflow-hidden max-w-4xl mx-auto"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
           <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
             {feedbacks.map((item, i) => (
               <motion.div
