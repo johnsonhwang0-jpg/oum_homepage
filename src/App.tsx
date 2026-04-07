@@ -27,6 +27,7 @@ const Navbar = ({ activeSection }: { activeSection: string }) => {
     { name: "Vision", id: "hero" },
     { name: "Methodology", id: "methodology" },
     { name: "Practice Hub", id: "practice" },
+    { name: "Feedback", id: "feedback" },
     { name: "Co-Pilot", id: "copilot" }
   ];
 
@@ -266,11 +267,80 @@ const PracticePlatform = () => {
 };
 
 
+const TeacherFeedback = () => {
+  const feedbacks = [
+    {
+      name: "Dr. Sarah Johnson",
+      role: "Professor of Computer Science",
+      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      feedback: "The AI-powered simulations have transformed how my students engage with complex concepts. The real-time feedback mechanism helps them identify misconceptions immediately."
+    },
+    {
+      name: "Prof. Michael Chen",
+      role: "Head of Physics Department",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      feedback: "The virtual lab environments allow students to experiment safely and repeatedly, which has significantly improved their understanding of physical phenomena."
+    },
+    {
+      name: "Dr. Emily Rodriguez",
+      role: "Educational Psychologist",
+      avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+      feedback: "The adaptive learning paths are precisely tailored to individual student needs, addressing the challenge of differentiated instruction in large classes."
+    },
+    {
+      name: "Prof. David Kim",
+      role: "Professor of Economics",
+      avatar: "https://randomuser.me/api/portraits/men/55.jpg",
+      feedback: "The economic simulation lab has made abstract concepts tangible for students, leading to more insightful class discussions and higher engagement."
+    }
+  ];
+
+  return (
+    <section id="feedback" className="py-32 px-8 md:px-24 bg-surface-container">
+      <div className="max-w-screen-2xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+          <div className="max-w-2xl">
+            <span className="text-primary text-[0.6875rem] uppercase tracking-[0.2em] font-bold block mb-4">Module 02</span>
+            <h2 className="font-headline text-5xl font-bold mb-6">Teacher Team Feedback</h2>
+            <p className="text-on-surface-variant text-lg">What educators are saying about our AI-native learning platform and how it's transforming their teaching experience.</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {feedbacks.map((item, i) => (
+            <motion.div
+              key={item.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="p-8 bg-surface-variant/30 rounded-lg border border-outline-variant/20 hover:border-primary/30 transition-all"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <img 
+                  src={item.avatar} 
+                  alt={item.name} 
+                  className="w-16 h-16 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="font-headline text-xl font-bold">{item.name}</h4>
+                  <p className="text-sm text-on-surface-variant">{item.role}</p>
+                </div>
+              </div>
+              <p className="text-on-surface text-lg leading-relaxed italic">"{item.feedback}"</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const CoPilot = () => (
   <section id="copilot" className="py-32 px-8 md:px-24 bg-surface-container-low">
     <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row gap-24 items-center">
       <div className="lg:w-1/2">
-        <span className="text-secondary text-[0.6875rem] uppercase tracking-[0.2em] font-bold block mb-4">Module 02</span>
+        <span className="text-secondary text-[0.6875rem] uppercase tracking-[0.2em] font-bold block mb-4">Module 03</span>
         <h2 className="font-headline text-5xl font-bold mb-8 text-on-surface">AI-Intelligent Co-Pilot</h2>
         <p className="text-on-surface-variant text-lg leading-relaxed mb-12">
           Addressing the pain points of isolation and low persistence. A 24/7 personal tutor that adapts to the student's level and the curriculum's difficulty.
@@ -370,7 +440,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const sections = ["hero", "methodology", "practice", "copilot"];
+    const sections = ["hero", "methodology", "practice", "feedback", "copilot"];
     
     const observerOptions = {
       root: null,
@@ -403,6 +473,7 @@ export default function App() {
         <Hero />
         <Methodology />
         <PracticePlatform />
+        <TeacherFeedback />
         <CoPilot />
         
         <section className="py-40 px-8 text-center bg-linear-to-b from-surface to-surface-container-low">
