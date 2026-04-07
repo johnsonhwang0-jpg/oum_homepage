@@ -19,6 +19,7 @@ import {
 import drNantha from './img/dr_nantha.png';
 import drLoo from './img/dr_loo.png';
 import drFaith from './img/dr_faith.png';
+import drKay from './img/dr_kay.png';
 
 const Navbar = ({ activeSection }: { activeSection: string }) => {
   const scrollToSection = (id: string) => {
@@ -294,6 +295,12 @@ const TeacherFeedback = () => {
       role: "Advanced Managerial Economics",
       avatar: drFaith,
       feedback: "It demonstrates a commendable effort to integrate experiential learning into a traditionally theoretical subject. The inclusion of dynamic graphs, adjustable parameters, and real-time feedback mechanisms allows learners to visualize how changes in price influence quantity demanded, which is essential for deep conceptual understanding. Overall, it was a commendable effort; the interactive simulation shows significant potential as a self-instructional tool and, with further refinement, could greatly enhance the accuracy, clarity, and educational value of the material, ensuring that learners develop a solid and reliable understanding of price elasticity of demand. Thank you 👍"
+    },
+    {
+      name: "Dr. Kay",
+      role: "Occupational Safety",
+      avatar: drKay,
+      feedback: "The simulation is clear and easy to follow, with a simple layout that helps users focus on identifying the correct fire class. The visual cues, such as the burning materials and labelled options (A–F), support quick understanding and make the activity interactive."
     }
   ];
 
