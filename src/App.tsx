@@ -229,41 +229,43 @@ const PracticePlatform = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {demos.map((item, i) => (
-              <motion.div 
+              <a 
                 key={item.title + i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative aspect-[4/3] bg-surface-container overflow-hidden rounded-lg"
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
               >
-                <img 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                  src={item.img} 
-                  alt={item.title}
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-surface via-surface/20 to-transparent"></div>
-                
-                {/* Course Name at Top Left */}
-                <div className="absolute top-6 left-6 z-20">
-                  <span className="inline-block px-3 py-1 bg-secondary text-[10px] font-bold text-background uppercase tracking-tighter rounded-sm shadow-lg">
-                    {item.course}
-                  </span>
-                </div>
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group relative aspect-[4/3] bg-surface-container overflow-hidden rounded-lg cursor-pointer"
+                >
+                  <img 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    src={item.img} 
+                    alt={item.title}
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-surface via-surface/20 to-transparent"></div>
+                  
+                  {/* Course Name at Top Left */}
+                  <div className="absolute top-6 left-6 z-20">
+                    <span className="inline-block px-3 py-1 bg-secondary text-[10px] font-bold text-background uppercase tracking-tighter rounded-sm shadow-lg">
+                      {item.course}
+                    </span>
+                  </div>
 
-                <div className="absolute bottom-0 p-8 w-full">
-                  <h4 className="font-headline text-2xl font-bold text-on-surface mb-2">{item.title}</h4>
-                  <a 
-                    className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mt-4" 
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Launch Module <OpenInNew className="w-3 h-3" />
-                  </a>
-                </div>
-              </motion.div>
+                  <div className="absolute bottom-0 p-8 w-full">
+                    <h4 className="font-headline text-2xl font-bold text-on-surface mb-2">{item.title}</h4>
+                    <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mt-4">
+                      Launch Module <OpenInNew className="w-3 h-3" />
+                    </div>
+                  </div>
+                </motion.div>
+              </a>
             ))}
           </div>
         </div>
